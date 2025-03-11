@@ -9,26 +9,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #4e73df;
-            --secondary-color: #858796;
-            --success-color: #1cc88a;
-            --info-color: #36b9cc;
-            --warning-color: #f6c23e;
-            --danger-color: #e74a3b;
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --success-color: #4cc9f0;
+            --info-color: #4895ef;
+            --warning-color: #f72585;
+            --danger-color: #e63946;
             --light-color: #f8f9fc;
-            --dark-color: #5a5c69;
+            --dark-color: #212529;
         }
         
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: #f8f9fc;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-attachment: fixed;
             overflow-x: hidden;
+        }
+        
+        /* Glass Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
         }
         
         .sidebar {
             min-height: 100vh;
             width: 250px;
-            background: linear-gradient(180deg, var(--primary-color) 10%, #224abe 100%);
+            background: linear-gradient(180deg, var(--primary-color) 10%, var(--secondary-color) 100%);
             color: white;
             position: fixed;
             left: 0;
@@ -36,6 +46,9 @@
             z-index: 100;
             transition: all 0.3s;
             box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .sidebar-brand {
@@ -72,6 +85,9 @@
             font-size: 0.85rem;
             display: flex;
             align-items: center;
+            border-radius: 0.5rem;
+            margin: 0.2rem 0.7rem;
+            transition: all 0.3s;
         }
         
         .nav-link i {
@@ -84,23 +100,29 @@
         .nav-link:hover {
             color: #fff;
             background-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
         }
         
         .nav-link.active {
             color: #fff;
             font-weight: 700;
+            background-color: rgba(255, 255, 255, 0.2);
         }
         
         .content-wrapper {
             margin-left: 250px;
             padding: 20px;
             transition: all 0.3s;
+            min-height: 100vh;
         }
         
         .topbar {
             height: 4.375rem;
-            background-color: #fff;
-            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
@@ -109,6 +131,7 @@
             position: sticky;
             top: 0;
             z-index: 99;
+            border-radius: 0 0 1rem 1rem;
         }
         
         .user-dropdown {
@@ -120,57 +143,71 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 600;
             margin-right: 8px;
+            box-shadow: 0 4px 12px rgba(31, 38, 135, 0.2);
         }
         
         .card {
-            border: none;
-            border-radius: 0.35rem;
-            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
             margin-bottom: 1.5rem;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.2);
         }
         
         .card-header {
-            background-color: #f8f9fc;
-            border-bottom: 1px solid #e3e6f0;
+            background: rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding: 1rem 1.25rem;
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--primary-color);
+            font-weight: 600;
+            color: var(--dark-color);
         }
         
         .stat-card {
-            border-left: 4px solid;
-            border-radius: 0.35rem;
-            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+            border-left: none;
+            border-radius: 1rem;
             position: relative;
-            transition: transform 0.2s;
+            overflow: hidden;
         }
         
-        .stat-card:hover {
-            transform: translateY(-5px);
+        .stat-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
         }
         
-        .stat-card-primary {
-            border-left-color: var(--primary-color);
+        .stat-card-primary::before {
+            background-color: var(--primary-color);
         }
         
-        .stat-card-success {
-            border-left-color: var(--success-color);
+        .stat-card-success::before {
+            background-color: var(--success-color);
         }
         
-        .stat-card-info {
-            border-left-color: var(--info-color);
+        .stat-card-info::before {
+            background-color: var(--info-color);
         }
         
-        .stat-card-warning {
-            border-left-color: var(--warning-color);
+        .stat-card-warning::before {
+            background-color: var(--warning-color);
         }
         
         .stat-icon {
@@ -180,6 +217,25 @@
             top: 50%;
             transform: translateY(-50%);
             opacity: 0.3;
+        }
+        
+        .btn {
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dropdown-menu {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
         }
         
         @media (max-width: 768px) {
@@ -238,6 +294,18 @@
                         <span>Permissions</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-fw fa-hospital"></i>
+                        <span>Hospitals</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-fw fa-user-md"></i>
+                        <span>Medical Staff</span>
+                    </a>
+                </li>
             @elseif(auth()->user()->hasRole('admin'))
                 <li class="nav-item">
                     <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
@@ -262,6 +330,18 @@
                     <a href="{{ route('user.profile') }}" class="nav-link {{ request()->is('user/profile') ? 'active' : '' }}">
                         <i class="fas fa-fw fa-user"></i>
                         <span>Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-fw fa-calendar"></i>
+                        <span>Appointments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-fw fa-notes-medical"></i>
+                        <span>Medical Records</span>
                     </a>
                 </li>
             @endif
