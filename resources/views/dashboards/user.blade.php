@@ -1,43 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12 mb-4">
-                <h1>User Dashboard</h1>
-                <p>Welcome, {{ $user->name }}!</p>
-            </div>
-        </div>
+@extends('layouts.dashboard')
 
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Your Profile</h5>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $user->name }}</h5>
-                        <p class="card-text">{{ $user->email }}</p>
-                        <a href="{{ route('user.profile') }}" class="btn btn-primary">Edit Profile</a>
+@section('title', 'User Dashboard')
+
+@section('content')
+    <h1 class="h3 mb-4 text-gray-800">Welcome, {{ $user->name }}!</h1>
+
+    <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2 stat-card stat-card-primary">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Appointments</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                            <div class="mt-2">
+                                <a href="#" class="text-decoration-none text-primary">View Details</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300 stat-icon"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Quick Actions</h5>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2 stat-card stat-card-success">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Medications</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                            <div class="mt-2">
+                                <a href="#" class="text-decoration-none text-success">View Details</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-pills fa-2x text-gray-300 stat-icon"></i>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action">Action 1</a>
-                            <a href="#" class="list-group-item list-group-item-action">Action 2</a>
-                            <a href="#" class="list-group-item list-group-item-action">Action 3</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2 stat-card stat-card-info">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Health Status
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Good</div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <a href="#" class="text-decoration-none text-info">View Details</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300 stat-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2 stat-card stat-card-warning">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Notifications</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                            <div class="mt-2">
+                                <a href="#" class="text-decoration-none text-warning">View Details</a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-bell fa-2x text-gray-300 stat-icon"></i>
                         </div>
                     </div>
                 </div>
@@ -45,6 +92,41 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Upcoming Appointments</h6>
+                    <a href="#" class="btn btn-sm btn-primary">Book New</a>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        You have no upcoming appointments.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Health Tips</h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <h5>Stay Hydrated</h5>
+                        <p>Drink at least 8 glasses of water daily to maintain good health.</p>
+                    </div>
+                    <div class="mb-3">
+                        <h5>Regular Exercise</h5>
+                        <p>Aim for at least 30 minutes of moderate exercise each day.</p>
+                    </div>
+                    <div class="mb-3">
+                        <h5>Balanced Diet</h5>
+                        <p>Include fruits, vegetables, and whole grains in your daily meals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
