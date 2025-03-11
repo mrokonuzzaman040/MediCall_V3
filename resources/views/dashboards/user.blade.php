@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2 stat-card stat-card-primary">
+            <div class="card shadow h-100 py-2 stat-card stat-card-primary glass-card">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300 stat-icon"></i>
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
         </div>
 
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2 stat-card stat-card-success">
+            <div class="card shadow h-100 py-2 stat-card stat-card-success glass-card">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-pills fa-2x text-gray-300 stat-icon"></i>
+                            <i class="fas fa-pills fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-info shadow h-100 py-2 stat-card stat-card-info">
+            <div class="card shadow h-100 py-2 stat-card stat-card-info glass-card">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -56,7 +56,7 @@
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Good</div>
+                                    <div class="h5 mb-0 me-3 font-weight-bold text-gray-800">Good</div>
                                 </div>
                             </div>
                             <div class="mt-2">
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300 stat-icon"></i>
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
         </div>
 
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2 stat-card stat-card-warning">
+            <div class="card shadow h-100 py-2 stat-card stat-card-warning glass-card">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-bell fa-2x text-gray-300 stat-icon"></i>
+                            <i class="fas fa-bell fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -94,10 +94,10 @@
 
     <div class="row">
         <div class="col-lg-6 mb-4">
-            <div class="card shadow mb-4">
+            <div class="card shadow mb-4 glass-card">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Upcoming Appointments</h6>
-                    <a href="#" class="btn btn-sm btn-primary">Book New</a>
+                    <h6 class="m-0 font-weight-bold">Upcoming Appointments</h6>
+                    <a href="#" class="btn btn-sm btn-primary glass-card">Book New</a>
                 </div>
                 <div class="card-body">
                     <div class="alert alert-info">
@@ -108,9 +108,9 @@
         </div>
 
         <div class="col-lg-6 mb-4">
-            <div class="card shadow mb-4">
+            <div class="card shadow mb-4 glass-card">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Health Tips</h6>
+                    <h6 class="m-0 font-weight-bold">Health Tips</h6>
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
